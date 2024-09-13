@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON-HTML-Render</title>
+</head>
+<body>
+    <ul id="container">
+    </ul>
+    <script>
+        // window.onload = async () => {
+        //     let resp = await fetch('/data.json');
+        //     setTimeout(async () => {
+        //         let data = await resp.json();
+        //         console.log(data);
+        //         let container = document.getElementById('container');
+        //         data.forEach((item) => {
+        //             let li = document.createElement('li');
+        //             li.innerHTML = item.id;
+        //             container.appendChild(li);
+        //         });
+        //     }, 1000);
+        // }
+
+        fetch('/data.json').then
+            (resp => resp.json())
+            .then(data => {
+                let container = document.getElementById('container');
+                data.forEach((item) => {
+                    let li = document.createElement('li');
+                    li.innerHTML = item.id;
+                    container.appendChild(li);
+                });
+            });
+    </script>
+</body>
+</html>
